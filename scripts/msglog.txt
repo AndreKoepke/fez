@@ -1,0 +1,2 @@
+{"update_id":227192881,
+"message":{"message_id":28,"from":{"id":177490958,"first_name":"Andre"},"chat":{"id":177490958,"first_name":"Andre","type":"private"},"date":1476045972,"text":"Hello"}}

@@ -88,6 +88,9 @@ class UserContext
 	  }
 	}
 	
+	/*
+	 * Schickt eine Nachricht an alle Benutzer, die den Registrierungsvorgang abgeschlossen haben
+	 */
 	public function informAll($text)
 	{
 		$states = array('idle', 'alerted', 'come', 'come_direct', 'na');
@@ -95,7 +98,6 @@ class UserContext
 
 
 		foreach($allIDs as $id) {
-		    $this->sqlCon->setUserState($id['id'], "idle");
 		    apiRequestJson("sendMessage", array('chat_id' => $id['id'], "text" => $text));
 	  }
 	}

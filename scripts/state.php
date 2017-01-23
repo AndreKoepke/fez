@@ -100,7 +100,6 @@ class UserContext
 
 
 		foreach($allIDs as $id) {
-		    $this->sqlCon->setUserState($id['id'], "idle");
 		    apiRequestJson("sendMessage", array('chat_id' => $id['id'], "text" => $text));
 	  }
 	}

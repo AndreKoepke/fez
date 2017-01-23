@@ -34,12 +34,14 @@ class UserContext
 
     public function setUserState($id, $stateName)
     {
-    	//Set UserState
-		$stateClass = $this->sqlCon->getUserState($id)."State";
-		$this->userState = new $stateClass($id);
 
 		//Update SQL-Record
     	$this->sqlCon->setUserState($id, $stateName);
+
+    	//Set Current State to new state
+		$stateClass = $stateName."State";
+		$this->userState = new $stateClass($id);
+
     }
 
 
@@ -88,6 +90,9 @@ class UserContext
 	  }
 	}
 	
+	/*
+	 * Schickt eine Nachricht an alle Benutzer, die den Registrierungsvorgang abgeschlossen haben
+	 */
 	public function informAll($text)
 	{
 		$states = array('idle', 'alerted', 'come', 'come_direct', 'na');
